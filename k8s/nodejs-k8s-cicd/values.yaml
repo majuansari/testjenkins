@@ -5,7 +5,7 @@
 replicaCount: 2
 
 image:
-  repository: gbxnga/nodejs-k8s-cicd
+  repository: majuansari/nodejs-k8s-cicd
   tag: 7
   pullPolicy: IfNotPresent
 
