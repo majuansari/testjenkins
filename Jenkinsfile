@@ -38,7 +38,7 @@ podTemplate(label: 'mypod', serviceAccount: 'jenkins-ci', containers: [
   ) {
     node('mypod') {
 
-        def REPOSITORY_URI = "gbxnga/nodejs-k8s-cicd"
+        def REPOSITORY_URI = "majuansari/nodejs-k8s-cicd"
         def HELM_APP_NAME = "nodejs-app"
         def HELM_CHART_DIRECTORY = "k8s/nodejs-k8s-cicd"
 
