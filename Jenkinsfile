@@ -51,10 +51,10 @@ podTemplate(label: 'mypod', serviceAccount: 'jenkins-ci', containers: [
             container('kubectl') { 
                 sh 'kubectl get pods -n default'  
             }
-            container('helm') { 
-                sh 'helm init --client-only --skip-refresh'
-                sh 'helm repo update'
-            }
+            // container('helm') { 
+            //     sh 'helm init --client-only --skip-refresh'
+            //     sh 'helm repo update'
+            // }
         }         
     }
 }
