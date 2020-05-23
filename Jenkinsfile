@@ -18,18 +18,17 @@ podTemplate(label: 'mypod', serviceAccount: 'jenkins-ci', containers: [
       resourceLimitMemory: '500Mi', 
       ttyEnabled: true, 
       command: 'cat'
+    ),
+    containerTemplate(
+      name: 'helm', 
+      image: 'alpine/helm:2.14.0', 
+      resourceRequestCpu: '100m',
+      resourceLimitCpu: '300m',
+      resourceRequestMemory: '300Mi',
+      resourceLimitMemory: '500Mi',
+      ttyEnabled: true, 
+      command: 'cat'
     )
-    // ,
-    // containerTemplate(
-    //   name: 'helm', 
-    //   image: 'alpine/helm:2.14.0', 
-    //   resourceRequestCpu: '100m',
-    //   resourceLimitCpu: '300m',
-    //   resourceRequestMemory: '300Mi',
-    //   resourceLimitMemory: '500Mi',
-    //   ttyEnabled: true, 
-    //   command: 'cat'
-    // )
   ],
 
   volumes: [
@@ -51,10 +50,10 @@ podTemplate(label: 'mypod', serviceAccount: 'jenkins-ci', containers: [
             container('kubectl') { 
                 sh 'kubectl get pods -n default'  
             }
-            // container('helm') { 
-            //     sh 'helm init --client-only --skip-refresh'
-            //     sh 'helm repo update'
-            // }
+            container('helm') { 
+                sh 'helm init --client-only --skip-refresh'
+                sh 'helm repo update'
+            }
         }         
     }
 }
